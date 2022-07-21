@@ -1,19 +1,20 @@
 import react, { useState } from "react"
 function Likes( {data} ) {
     
-    const [up, setUp] = useState(9210)
-    const [down, setDown] = useState(185)
+    const [up, setUp] = useState(data.upvotes)
+    const [down, setDown] = useState(data.downvotes)
+
     function upButton(){
-        setUp()
+        setUp(up + 1)
     }
 
     function downButton(){
-        setDown()
+        setDown(down + 1)
     }
 
     return (
         <div>
-            <button onCLick={upButton} >{up} 👍</button>
+            <button onClick={upButton} >{up} 👍</button>
             <button onClick={downButton} >{down} 👎</button>
         </div>
     )
